@@ -1,0 +1,30 @@
+.school_search {
+  width: 300px;
+  position: relative;
+  h2 {
+    font-size: 17px;
+    margin-top: 0;
+    text-align: center;
+  }
+  &__box {
+    box-shadow: #00000025 3px 3px 20px;
+    padding: 15px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__input {
+    text-align: center;
+    width: 90%;
+    height: 22px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px #c4c4c4 solid;
+    &:focus {
+      outline: none;
+    }
+  }
+}
