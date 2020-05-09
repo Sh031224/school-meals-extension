@@ -21,8 +21,14 @@ export default function Search() {
     <div className="school_search">
       <h2 className="school_search__title">School Meals Extenstion</h2>
       <div className="school_search__box">
-        <input className="school_search__input" onChange={onChange} value={school} placeholder="학교를 검색해주세요." />
+        <input
+          className="school_search__input"
+          onChange={onChange}
+          value={school}
+          placeholder="학교를 검색해주세요."
+        />
       </div>
+      <div></div>
     </div>
   );
 }
