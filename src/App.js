@@ -7,8 +7,8 @@ import "./App.scss";
 function App() {
   return (
     <Router>
-      <Route path="/search" exact={true} component={SchoolMealsPage}></Route>
-      <Route path="/" component={SchoolSearchPage}></Route>
+      <Route path="/" exact={true} component={SchoolMealsPage}></Route>
+      <Route path="/search" component={SchoolSearchPage}></Route>
     </Router>
   );
 }

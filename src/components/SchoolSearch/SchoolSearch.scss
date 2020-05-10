@@ -1,30 +1,146 @@
 .school_search {
-  width: 300px;
+  width: 400px;
   position: relative;
   h2 {
     font-size: 17px;
     margin-top: 0;
     text-align: center;
+    color: #260074;
   }
-  &__box {
+  &_box {
     box-shadow: #00000025 3px 3px 20px;
-    padding: 15px;
+    padding: 25px 15px 15px 15px;
     margin: 0 auto;
     position: relative;
     display: flex;
     display: -webkit-flex;
-    justify-content: center;
     align-items: center;
+    height: 450px;
+    flex-direction: column;
   }
-  &__input {
-    text-align: center;
-    width: 90%;
-    height: 22px;
+  &_form {
+    width: 100%;
+    max-width: 330px;
+    height: 33px;
+    display: flex;
+    display: -webkit-flex;
+    position: relative;
+  }
+  &_input {
+    flex-grow: 1;
+    height: 100%;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px #c4c4c4 solid;
+    border-radius: 11px 0 0 11px;
+    padding: 10px 10px 10px 38px;
+    background-color: #e8e8e8;
     &:focus {
       outline: none;
+    }
+    &::placeholder {
+      font-weight: 700;
+      color: gray;
+    }
+  }
+  &_btn {
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    border-radius: 11px;
+    border: none;
+    background-color: #7e40ff;
+    width: 33px;
+    height: 33px;
+    img {
+      width: 23px;
+    }
+  }
+  &_content {
+    overflow: auto;
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+.school_list {
+  display: flex;
+  display: -webkit-flex;
+  flex-grow: 1;
+  height: 87px;
+  background-color: #fff;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.16);
+  margin-bottom: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  justify-content: center;
+  padding: 10px 10px 10px 20px;
+  flex-direction: column;
+  text-align: left;
+  &_name {
+    padding-left: 50px;
+    position: relative;
+    &_title {
+      width: 35px;
+      position: absolute;
+      height: 12px;
+      left: 0;
+      top: 0px;
+      background-color: #9e9e9e;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      padding: 5px;
+    }
+    &_text {
+      font-size: 20px;
+      font-weight: 800;
+      color: #4e4e4e;
+    }
+  }
+  &_address {
+    margin-top: 10px;
+    padding-left: 50px;
+    position: relative;
+    &_title {
+      left: 0;
+      position: absolute;
+      width: 31px;
+      height: 12px;
+      background-color: #c8c8c8;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      padding: 5px;
+      text-align: center;
+    }
+    &_text {
+      font-size: 14px;
+      font-weight: 700;
+      color: #7b7b7b;
+    }
+  }
+  &_box {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    span {
+      color: #ccc;
+      font-size: 17px;
+      font-weight: 800;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    img {
+      width: 80px;
     }
   }
 }

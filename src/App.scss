@@ -1,4 +1,41 @@
 body {
   margin: 0;
   padding: 20px;
+  font-family: "NanumSquare";
 }
+@font-face {
+  font-family: "NanumSquare";
+  font-weight: 400;
+  font-display: fallback;
+  src: local("NanumSquare"), url("/fonts/NanumSquareR.eot"),
+    url("/fonts/NanumSquareR.eot#iefix") format("embedded-opentype"),
+    url("/fonts/NanumSquareR.woff") format("woff"),
+    url("/fonts/NanumSquareR.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumSquare";
+  font-weight: 700;
+  font-display: fallback;
+  src: local("NanumSquare"), url("/fonts/NanumSquareB.eot"),
+    url("/fonts/NanumSquareB.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/NanumSquareB.woff") format("woff"),
+    url("/fonts/NanumSquareB.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumSquare";
+  font-weight: 800;
+  font-display: fallback;
+  src: local("NanumSquare"), url("/fonts/NanumSquareEB.eot"),
+    url("/fonts/NanumSquareEB.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/NanumSquareEB.woff") format("woff"),
+    url("/fonts/NanumSquareEB.ttf") format("truetype");
+}
+/*@font-face {
+  font-family: 'NanumSquare';
+  font-weight: 300;
+  src: local('NanumSquare'),
+       url('/fonts/NanumSquareL.eot'),
+       url('/fonts/NanumSquareL.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/NanumSquareL.woff') format('woff'),
+       url('/fonts/NanumSquareL.ttf') format('truetype');
+ }*/
