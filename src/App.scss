@@ -3,6 +3,14 @@ body {
   padding: 20px;
   font-family: "NanumSquare";
 }
+img {
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
 @font-face {
   font-family: "NanumSquare";
   font-weight: 400;
