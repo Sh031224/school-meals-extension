@@ -1377,7 +1377,7 @@
     pretty-format "^24.0.0"
     redent "^3.0.0"
 
-"@testing-library/react@^9.3.2":
+"@testing-library/react@^9.3.2", "@testing-library/react@^9.4.0":
   version "9.5.0"
   resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-9.5.0.tgz#71531655a7890b61e77a1b39452fbedf0472ca5e"
   integrity sha512-di1b+D0p+rfeboHO5W7gTVeZDIK5+maEgstrZbWZSSvxDyfDRkkyBE1AJR5Psd6doNldluXlCWqXriUfqu/9Qg==
@@ -3535,6 +3535,11 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     abab "^2.0.0"
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
+
+dateformat@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
+  integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -8874,6 +8879,13 @@ react-app-polyfill@^1.0.6:
     raf "^3.4.1"
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
+
+react-chrome-extension-router@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-chrome-extension-router/-/react-chrome-extension-router-1.1.0.tgz#c0b10161bc718e4470f6ca280e5859d17b6c0de7"
+  integrity sha512-DLK/3ikBqzhKakDsS/vUJfN0NkeAjJKAd99q/piekns4ZqZXLZxseShk0fo8iYz5GpPwMYVplSios0lH4M590w==
+  dependencies:
+    "@testing-library/react" "^9.4.0"
 
 react-dev-utils@^10.2.1:
   version "10.2.1"
