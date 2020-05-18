@@ -1,12 +1,16 @@
 {
-  "name": "School_Meal_Extension",
-  "description": "전국의 학교 급식 정보",
+  "name": "전국의 학교 급식 및 일정 정보",
+  "description": "전국의 학교 급식 및 일정 정보를 알려주는 확장 프로그램입니다.",
   "version": "1.0.0",
-  "short_name": "School_Meal",
+  "short_name": "전국 학교 급식 및 일정",
   "permissions": ["storage", "notifications"],
-  "manifest_version": 2,
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "manifest_version": 1,
   "browser_action": {
     "default_popup": "index.html"
-  },
-  "content_security_policy": "script-src 'self' 'sha256-OPh+8Q09LwKCX25QDFN645SiY6BMNty7lRvOz2uqD5k='; object-src 'self'"
+  }
 }
