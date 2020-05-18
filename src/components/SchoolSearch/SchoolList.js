@@ -1,7 +1,9 @@
 import React from "react";
+import SchoolMealsPage from "../../pages/SchoolMealsPage";
+import { goTo } from "react-chrome-extension-router";
 import PropTypes from "prop-types";
 
-export default function SchoolList({ schools, history }) {
+export default function SchoolList({ schools }) {
   const setSchool = (idx) => {
     const school_id = document
       .getElementsByClassName("school_list")
@@ -12,11 +14,11 @@ export default function SchoolList({ schools, history }) {
     /* global chrome */
     chrome.storage.sync.set({ school_id: school_id, office_code: office_code });
 
-    history.push("/");
+    goTo(SchoolMealsPage);
   };
 
   return (
-    <div>
+    <div className="school_list_area">
       {schools.map((school, index) => (
         <div
           className="school_list"

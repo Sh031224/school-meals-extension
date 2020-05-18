@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { server } from "../../config/index.json";
 import "./SchoolSearch.scss";
+import SchoolMealsPage from "../../pages/SchoolMealsPage";
+import { goTo } from "react-chrome-extension-router";
 import search from "../../assets/img/search.png";
 import question from "../../assets/img/question.png";
 import SchoolList from "./SchoolList";
 
 export default function Search() {
   const [schoolList, setSchoolList] = useState([]);
+  const [back, setBack] = useState(Boolean);
 
   const [school, setSchool] = useState("");
 
@@ -39,9 +42,21 @@ export default function Search() {
     }
   };
 
+  useEffect(() => {
+    const keys = ["school_id", "office_code"];
+    /* global chrome */
+    chrome.storage.sync.get(keys, (items) => {
+      if (items.school_id && items.office_code) {
+        setBack(true);
+      } else {
+        setBack(false);
+      }
+    });
+  }, []);
+
   return (
     <div className="school_search">
-      <h2 className="school_search_title">School Meals Extenstion</h2>
+      <h2 className="school_search_title">오늘 뭐먹지 ?!</h2>
       <div className="school_search_box">
         <form onSubmit={getSchoolList} className="school_search_form">
           <input
@@ -67,6 +82,18 @@ export default function Search() {
           </div>
         )}
       </div>
+      {back ? (
+        <div
+          onClick={() => {
+            goTo(SchoolMealsPage);
+          }}
+          className="school_search_footer"
+        >
+          뒤로 가기
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

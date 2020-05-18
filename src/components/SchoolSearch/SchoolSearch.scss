@@ -1,8 +1,22 @@
 .school_search {
   width: 400px;
   position: relative;
+  &_footer {
+    background-color: #fff;
+    box-shadow: #00000025 3px 3px 20px;
+    width: 100%;
+    height: 50px;
+    margin-top: 15px;
+    font-size: 18px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+  }
   h2 {
-    font-size: 17px;
+    font-size: 20px;
+    font-weight: 800;
     margin-top: 0;
     text-align: center;
     color: #260074;
@@ -15,7 +29,7 @@
     display: flex;
     display: -webkit-flex;
     align-items: center;
-    height: 450px;
+    height: 400px;
     flex-direction: column;
   }
   &_form {
@@ -57,12 +71,14 @@
   }
   &_content {
     overflow: auto;
-    flex-grow: 1;
+    width: 100%;
+    max-width: 330px;
     overflow-y: scroll;
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 30px;
     padding-bottom: 30px;
+    min-height: 350px;
   }
 }
 .school_list {
@@ -79,6 +95,12 @@
   padding: 10px 10px 10px 20px;
   flex-direction: column;
   text-align: left;
+  &_area {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
   &_name {
     padding-left: 50px;
     position: relative;
