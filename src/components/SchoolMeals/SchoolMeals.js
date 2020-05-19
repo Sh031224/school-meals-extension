@@ -6,6 +6,7 @@ import "./SchoolMeals.scss";
 import SchoolSearchPage from "../../pages/SchoolSearchPage";
 import { goTo } from "react-chrome-extension-router";
 import SchoolMealsList from "./SchoolMealsList";
+import { MdRefresh, MdArrowBack, MdArrowForward } from "react-icons/md";
 
 export default function SchoolMeals({ history }) {
   const [scheduleList, setScheduleList] = useState("");
@@ -14,6 +15,7 @@ export default function SchoolMeals({ history }) {
   const [today, setToday] = useState(new Date());
   const [hover, setHover] = useState(false);
   const [printDay, setPrintDay] = useState(dateFormat(today, "mm/dd"));
+  const [config, setConfig] = useState({});
 
   const getApi = async (school_id, office_code) => {
     const meal = await axios.get(
@@ -83,12 +85,8 @@ export default function SchoolMeals({ history }) {
     day.setDate(today.getDate() - 1);
     setToday(day);
     setPrintDay(dateFormat(today, "mm/dd"));
-    const keys = ["school_id", "office_code"];
-    /* global chrome */
-    chrome.storage.sync.get(keys, (items) => {
-      getMeals(items.school_id, items.office_code);
-      getSchedule(items.school_id, items.office_code);
-    });
+    getMeals(config.school_id, config.office_code);
+    getSchedule(config.school_id, config.office_code);
   };
 
   const todayDay = () => {
@@ -104,19 +102,15 @@ export default function SchoolMeals({ history }) {
     day.setDate(today.getDate() + 1);
     setToday(day);
     setPrintDay(dateFormat(today, "mm/dd"));
-
-    const keys = ["school_id", "office_code"];
-    /* global chrome */
-    chrome.storage.sync.get(keys, (items) => {
-      getMeals(items.school_id, items.office_code);
-      getSchedule(items.school_id, items.office_code);
-    });
+    getMeals(config.school_id, config.office_code);
+    getSchedule(config.school_id, config.office_code);
   };
 
   useEffect(() => {
     const keys = ["school_id", "office_code"];
     /* global chrome */
     chrome.storage.sync.get(keys, (items) => {
+      setConfig({ school_id: items.school_id, office_code: items.office_code });
       getMeals(items.school_id, items.office_code);
       getSchedule(items.school_id, items.office_code);
     });
@@ -129,30 +123,30 @@ export default function SchoolMeals({ history }) {
       </div>
       <div className="school_meals_btn_area">
         <button className="school_meals_btn" onClick={prevDay}>
-          PREV
+          <MdArrowBack />
         </button>
         {hover ? (
           <button
             onMouseEnter={mouseEnter}
             onMouseLeave={mouseLeave}
-            className="school_meals_btn"
+            className="school_meals_btn school_meals_btn_today"
             onClick={todayDay}
           >
-            TODAY
+            <MdRefresh className="school_meals_btn_icon" />
           </button>
         ) : (
           <button
             onMouseEnter={mouseEnter}
             onMouseLeave={mouseLeave}
             onClick={todayDay}
-            className="school_meals_btn"
+            className="school_meals_btn school_meals_btn_today"
           >
             {printDay}
           </button>
         )}
 
         <button className="school_meals_btn" onClick={nextDay}>
-          NEXT
+          <MdArrowForward />
         </button>
       </div>
       <SchoolMealsList meal={meals} />

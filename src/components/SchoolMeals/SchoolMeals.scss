@@ -1,31 +1,59 @@
 .school_meals {
-  width: 600px;
+  width: 550px;
   position: relative;
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  height: 330px;
+  height: 320px;
+  align-items: center;
   &_header {
     h2 {
+      margin-top: 0px;
       text-align: center;
-      margin-bottom: 0px;
+      font-weight: 800;
+      color: #676a79;
+      text-shadow: 1px 1px 1px #fff;
     }
   }
   &_btn {
-    flex-grow: 1;
-    max-width: 186px;
-    border: none;
-    cursor: pointer;
-    height: 28px;
-    border-radius: 3px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.226);
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    padding: 0;
+    height: 40px;
+    text-align: center;
+    color: #006fe6;
     font-weight: 700;
+    box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babecc;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background-color: #ebecf0;
+    text-shadow: 1px 1px 0 #fff;
+    &_today {
+      font-size: 13px;
+    }
+    &_icon {
+      font-size: 20px;
+    }
+    &:hover {
+      box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+    }
+
+    &:active {
+      box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+    }
     &:focus {
       outline: none;
     }
     &_area {
-      margin-top: 30px;
+      width: 300px;
+      margin-top: 10px;
       display: flex;
       display: -webkit-flex;
       justify-content: space-between;
@@ -43,13 +71,6 @@
     left: 20px;
     top: 10px;
   }
-  &_title {
-    font-size: 17px;
-    font-weight: 800;
-    margin-top: 0;
-    text-align: center;
-    color: #260074;
-  }
   &_list {
     width: 100%;
     margin-top: 20px;
@@ -59,26 +80,21 @@
     position: relative;
     justify-content: space-between;
     &_title {
-      color: #fff;
+      color: #3f3f3f;
       font-weight: 800;
       font-size: 16px;
       display: flex;
       display: -webkit-flex;
+      text-shadow: 1px 1px 0 #fff;
+      justify-content: center;
       align-items: center;
-      img {
-        width: 20px;
-      }
-      span {
-        margin-left: 5px;
-      }
     }
     &_content {
-      color: rgb(211, 211, 211);
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 25px;
-      height: calc(100% - 30px);
-      overflow: scroll;
+      color: #696b72;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 23px;
+      overflow-y: scroll;
       -ms-overflow-style: none;
       scrollbar-width: none;
       display: flex;
@@ -86,31 +102,39 @@
       justify-content: center;
       width: 100%;
       word-break: break-all;
+      height: 135px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
     &_box {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.555);
-      flex-grow: 1;
-      max-width: 160px;
+      width: 135px;
       border-radius: 20px;
-      overflow: hidden;
-      height: 170px;
+      height: 160px;
       position: relative;
       padding: 13px;
-    }
-    &_1 {
-      background-color: #611cee;
-    }
-    &_2 {
-      background-color: #4904d8;
-    }
-    &_3 {
-      background-color: #3a00b4;
+      text-align: center;
+      color: #babecc;
+      font-weight: bold;
+      box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babecc;
+      transition: all 0.2s ease-in-out;
+      font-size: 12px;
+      font-weight: 600;
+      background-color: #ebecf0;
+      text-shadow: 1px 1px 0 #fff;
+      &:hover {
+        box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+      }
+
+      &:active {
+        box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+      }
     }
   }
   &_footer {
     margin-top: 15px;
     font-size: 13px;
-    color: #611cee;
+    color: #706868;
     display: flex;
     display: -webkit-flex;
     text-align: center;
@@ -118,13 +142,14 @@
     span {
       margin-left: 20px;
       margin-right: 20px;
+      text-shadow: 1px 1px 0 #fff;
       cursor: pointer;
       &:hover {
         text-decoration: underline;
       }
     }
     a {
-      color: #611cee;
+      color: #706868;
       text-decoration: none;
       &:hover {
         text-decoration: underline;

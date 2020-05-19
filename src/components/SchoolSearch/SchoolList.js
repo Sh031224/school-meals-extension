@@ -27,16 +27,7 @@ export default function SchoolList({ schools }) {
           office_code={school.office_code}
           onClick={() => setSchool(index)}
         >
-          <div className="school_list_name">
-            <span className="school_list_name_title">학교명</span>
-            <span className="school_list_name_text">{school.school_name}</span>
-          </div>
-          <div className="school_list_address">
-            <span className="school_list_address_title">주소</span>
-            <span className="school_list_address_text">
-              {school.school_locate}
-            </span>
-          </div>
+          <div className="school_list_name">{school.school_name}</div>
         </div>
       ))}
     </div>

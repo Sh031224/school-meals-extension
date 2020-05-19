@@ -4,7 +4,7 @@ import { server } from "../../config/index.json";
 import "./SchoolSearch.scss";
 import SchoolMealsPage from "../../pages/SchoolMealsPage";
 import { goTo } from "react-chrome-extension-router";
-import search from "../../assets/img/search.png";
+import { MdArrowBack } from "react-icons/md";
 import question from "../../assets/img/question.png";
 import SchoolList from "./SchoolList";
 
@@ -56,7 +56,19 @@ export default function Search() {
 
   return (
     <div className="school_search">
-      <h2 className="school_search_title">오늘 뭐먹지 ?!</h2>
+      {back ? (
+        <div
+          onClick={() => {
+            goTo(SchoolMealsPage);
+          }}
+          className="school_search_back"
+        >
+          <MdArrowBack />
+        </div>
+      ) : (
+        ""
+      )}
+      <h2 className="school_search_title">Meals Extension</h2>
       <div className="school_search_box">
         <form onSubmit={getSchoolList} className="school_search_form">
           <input
@@ -67,33 +79,20 @@ export default function Search() {
             onKeyPress={keyPress}
             required
           />
-          <button type="submit" className="school_search_btn">
-            <img src={search} alt="search" />
-          </button>
         </form>
         {schoolList.length ? (
           <div className="school_search_content">
             <SchoolList schools={schoolList} />
           </div>
         ) : (
-          <div className="school_list_box">
+          <div className="school_search_content">
             <img src={question} alt="question" />
-            <span>검색 결과가 없습니다.</span>
+            <span className="school_search_content_span">
+              검색 결과가 없습니다.
+            </span>
           </div>
         )}
       </div>
-      {back ? (
-        <div
-          onClick={() => {
-            goTo(SchoolMealsPage);
-          }}
-          className="school_search_footer"
-        >
-          뒤로 가기
-        </div>
-      ) : (
-        ""
-      )}
     </div>
   );
 }
