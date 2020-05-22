@@ -14,7 +14,7 @@
     text-align: center;
     color: #006fe6;
     font-weight: 700;
-    box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babecc;
+    box-shadow: -5px -5px 5px #fff, 5px 5px 5px #babecc;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-size: 20px;
@@ -24,9 +24,8 @@
     background-color: #ebecf0;
     text-shadow: 1px 1px 0 #fff;
     &:hover {
-      box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+      box-shadow: -2px -2px 2px #fff, 2px 2px 2px #babecc;
     }
-
     &:active {
       box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
     }
@@ -126,6 +125,7 @@
     }
   }
 }
+
 .school_list {
   display: inline-block;
   flex-grow: 1;

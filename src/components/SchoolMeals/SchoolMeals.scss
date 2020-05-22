@@ -26,7 +26,7 @@
     text-align: center;
     color: #006fe6;
     font-weight: 700;
-    box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babecc;
+    box-shadow: -5px -5px 5px #fff, 5px 5px 5px #babecc;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-size: 20px;
@@ -42,7 +42,7 @@
       font-size: 20px;
     }
     &:hover {
-      box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+      box-shadow: -2px -2px 2px #fff, 2px 2px 2px #babecc;
     }
 
     &:active {
@@ -116,14 +116,14 @@
       text-align: center;
       color: #babecc;
       font-weight: bold;
-      box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babecc;
+      box-shadow: -5px -5px 5px #fff, 5px 5px 5px #babecc;
       transition: all 0.2s ease-in-out;
       font-size: 12px;
       font-weight: 600;
       background-color: #ebecf0;
       text-shadow: 1px 1px 0 #fff;
       &:hover {
-        box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+        box-shadow: -2px -2px 2px #fff, 2px 2px 2px #babecc;
       }
 
       &:active {
