@@ -1,1 +1,1 @@
-## School_meals_extension
+## 전국의 학교 급식 및 일정 정보
