@@ -145,8 +145,9 @@
     font-weight: 700;
     color: #696b72;
     text-align: center;
+    transition: ease-in-out 1s 0s;
+    position: relative;
     &:hover {
-      text-shadow: 0.5px 0.5px 0 rgb(199, 199, 199);
       color: rgb(31, 31, 31);
     }
   }

@@ -27,7 +27,9 @@ export default function SchoolList({ schools }) {
           office_code={school.office_code}
           onClick={() => setSchool(index)}
         >
-          <div className="school_list_name">{school.school_name}</div>
+          <div className="school_list_name" title={school.school_locate}>
+            {school.school_name}
+          </div>
         </div>
       ))}
     </div>
