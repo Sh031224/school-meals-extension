@@ -14,6 +14,7 @@ export default function SchoolMeals({ history }) {
   const [meals, setMeals] = useState([]);
   const [today, setToday] = useState(new Date());
   const [hover, setHover] = useState(false);
+  const [error, setError] = useState(false);
   const [printDay, setPrintDay] = useState(dateFormat(today, "mm/dd"));
   const [config, setConfig] = useState({});
 
@@ -37,8 +38,13 @@ export default function SchoolMeals({ history }) {
         setMeals(res.data.data.meal);
       })
       .catch((error) => {
-        if (error.response.status === 404) {
+        if (error.response.status) {
+          if (error.response.status === 404) {
+            setMeals([]);
+          }
+        } else {
           setMeals([]);
+          setError(true);
         }
       });
   };
@@ -66,8 +72,12 @@ export default function SchoolMeals({ history }) {
         setScheduleList(list);
       })
       .catch((error) => {
-        if (error.response.status === 404) {
-          setSchedule("일정이 없습니다.");
+        if (error.response.status) {
+          if (error.response.status === 404) {
+            setSchedule("일정이 없습니다.");
+          }
+        } else {
+          setSchedule("오류가 발생하였습니다.");
         }
       });
   };
@@ -149,7 +159,7 @@ export default function SchoolMeals({ history }) {
           <MdArrowForward />
         </button>
       </div>
-      <SchoolMealsList meal={meals} />
+      <SchoolMealsList meal={meals} error={error} />
       <div className="school_meals_footer">
         <span
           onClick={() => {
