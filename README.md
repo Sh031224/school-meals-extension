@@ -1,6 +1,8 @@
-## 전국의 학교 급식 및 일정 정보
+## school-meals-extension
 
-### 바로가기
+🍽 It is an extension program that informs Korea's national school lunch and schedule information.
+
+### Shortcuts
 
 [Whale](https://store.whale.naver.com/detail/igacokmbgjalgongkebmeaghkikdapba)
 <br />
