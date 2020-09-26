@@ -1,0 +1,17 @@
+@import "./font.scss";
+
+img {
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+body {
+  font-family: NanumSquare;
+  margin: 0;
+  padding: 20px;
+  background-color: #ebecf0;
+}

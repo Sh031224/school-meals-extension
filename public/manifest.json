@@ -13,5 +13,5 @@
   "browser_action": {
     "default_popup": "index.html"
   },
-  "content_security_policy": "script-src 'self' 'sha256-OPh+8Q09LwKCX25QDFN645SiY6BMNty7lRvOz2uqD5k='; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'sha256-f+rJe0LHDvDY86BCOT+21GNcbRxFrP1Exu80HHHNn1o='; object-src 'self'"
 }
