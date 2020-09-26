@@ -1,0 +1,28 @@
+$NANUM_SQUARE_URL: "../assets/font/NanumSquare";
+
+@mixin font_face($weight, $url) {
+  font-family: NanumSquare;
+  font-display: block; // 웹 폰트 로딩처리
+  font-weight: $weight;
+  src: url($url + ".eot");
+  src: url($url + ".eot?#iefix") format("embedded-opentype"),
+    url($url + ".woff") format("woff"), url($url + ".ttf") format("truetype");
+}
+
+$NANUM_SQUARE_LIGHT_WEIGHT: 300;
+$NANUM_SQUARE_REGULAR_WEIGHT: 500;
+$NANUM_SQUARE_BOLD_WEIGHT: 700;
+$NANUM_SQUARE_EXTRA_BOLD_WEIGHT: 800;
+
+@font-face {
+  @include font_face($NANUM_SQUARE_LIGHT_WEIGHT, $NANUM_SQUARE_URL + "L");
+}
+@font-face {
+  @include font_face($NANUM_SQUARE_REGULAR_WEIGHT, $NANUM_SQUARE_URL + "R");
+}
+@font-face {
+  @include font_face($NANUM_SQUARE_BOLD_WEIGHT, $NANUM_SQUARE_URL + "B");
+}
+@font-face {
+  @include font_face($NANUM_SQUARE_EXTRA_BOLD_WEIGHT, $NANUM_SQUARE_URL + "EB");
+}
