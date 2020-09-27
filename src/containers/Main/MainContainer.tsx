@@ -26,7 +26,7 @@ interface ScheduleType {
 }
 
 const MainContainer = () => {
-  const [schoolId, setSchoolId] = useState<number>(7240393);
+  const [schoolId, setSchoolId] = useState<string>("");
   const [officeCode, setOfficeCode] = useState<string>("D10");
   const [date, setDate] = useState<Date>(new Date());
 
@@ -41,16 +41,16 @@ const MainContainer = () => {
   const storageCheck = useCallback(() => {
     const isExisit = getStorage();
     if (isExisit.office_code && isExisit.school_id) {
-      setSchoolId(Number(isExisit.school_id));
+      setSchoolId(isExisit.school_id);
       setOfficeCode(isExisit.office_code);
     } else {
       goTo(SearchPage);
     }
   }, []);
 
-  // useEffect(() => {
-  //   storageCheck();
-  // }, [storageCheck]);
+  useEffect(() => {
+    storageCheck();
+  }, [storageCheck]);
 
   const getMealsCallback = useCallback(async () => {
     if (schoolId && officeCode) {
