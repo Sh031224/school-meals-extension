@@ -77,7 +77,7 @@ const Main = ({
             School Change
           </span>
           <a
-            href="https://github.com/Sh031224/school_meals_extention"
+            href="https://github.com/Sh031224/school_meals_extension"
             target="_blank"
             rel="noopener noreferrer"
           >
