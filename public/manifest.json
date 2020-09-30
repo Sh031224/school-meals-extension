@@ -3,7 +3,7 @@
   "description": "전국의 학교 급식 및 일정 정보를 알려주는 확장 프로그램입니다.",
   "version": "1.0.5",
   "short_name": "전국 학교 급식 및 일정",
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -13,5 +13,5 @@
   "browser_action": {
     "default_popup": "index.html"
   },
-  "content_security_policy": "script-src 'self' 'sha256-f+rJe0LHDvDY86BCOT+21GNcbRxFrP1Exu80HHHNn1o='; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'sha256-OPh+8Q09LwKCX25QDFN645SiY6BMNty7lRvOz2uqD5k='; object-src 'self'"
 }
