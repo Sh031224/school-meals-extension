@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { goTo } from "react-chrome-extension-router";
-import SearchPage from "../../pages/SearchPage";
-import getStorage from "../../lib/getStorage";
 import Meals from "../../assets/api/Meals";
 import ResponseType from "../../types/Response";
 import Schedule from "../../assets/api/Schedule";
 import Main from "../../components/Main";
+import SearchPage from "../../pages/SearchPage";
 
 interface MealsResponse extends ResponseType {
   data: {
@@ -27,7 +26,7 @@ interface ScheduleType {
 
 const MainContainer = () => {
   const [schoolId, setSchoolId] = useState<string>("");
-  const [officeCode, setOfficeCode] = useState<string>("D10");
+  const [officeCode, setOfficeCode] = useState<string>("");
   const [date, setDate] = useState<Date>(new Date());
 
   const [meals, setMeals] = useState<Array<string | null>>([]);
@@ -39,13 +38,16 @@ const MainContainer = () => {
   const [hover, setHover] = useState<boolean>(false);
 
   const storageCheck = useCallback(() => {
-    const isExisit = getStorage();
-    if (isExisit.office_code && isExisit.school_id) {
-      setSchoolId(isExisit.school_id);
-      setOfficeCode(isExisit.office_code);
-    } else {
-      goTo(SearchPage);
-    }
+    const keys = ["school_id", "office_code"];
+
+    chrome.storage.sync.get(keys, (items) => {
+      if (items.office_code && items.school_id) {
+        setSchoolId(items.school_id);
+        setOfficeCode(items.office_code);
+      } else {
+        goTo(SearchPage);
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -54,6 +56,7 @@ const MainContainer = () => {
 
   const getMealsCallback = useCallback(async () => {
     if (schoolId && officeCode) {
+      setCalories([null]);
       setMeals(["불러오는 중", "불러오는 중", "불러오는 중"]);
       await Meals.GetMeals(schoolId, officeCode, date)
         .then((res: MealsResponse) => {

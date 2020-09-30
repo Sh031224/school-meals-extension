@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { goTo } from "react-chrome-extension-router";
 import School from "../../assets/api/School";
 import Search from "../../components/Search";
-import getStorage from "../../lib/getStorage";
 import MainPage from "../../pages/MainPage";
 import ResponseType from "../../types/Response";
 
@@ -19,22 +18,24 @@ interface SchoolType {
   school_id: number;
 }
 
-const SearchContainer = ({}) => {
+const SearchContainer = () => {
   const [goBack, setGoBack] = useState<boolean>(false);
   const [schoolList, setSchoolList] = useState<Array<SchoolType>>([]);
 
   const [search, setSearch] = useState<string>("");
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [isEmpty, setIsEmpty] = useState<boolean>(false);
 
   const storageCheck = useCallback(() => {
-    const isExisit = getStorage();
-    if (isExisit.office_code && isExisit.school_id) {
-      setGoBack(true);
-    } else {
-      setGoBack(false);
-    }
+    const keys = ["school_id", "office_code"];
+
+    chrome.storage.sync.get(keys, (items) => {
+      if (items.office_code && items.school_id) {
+        setGoBack(true);
+      } else {
+        setGoBack(false);
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -44,16 +45,11 @@ const SearchContainer = ({}) => {
   const getSchoolList = useCallback(async () => {
     setLoading(true);
     setSchoolList([]);
-    setIsEmpty(false);
     await School.SearchSchool(search)
       .then((res: SchoolSearchResponse) => {
         setSchoolList(res.data.school);
       })
-      .catch((err: Error) => {
-        if (err.message.indexOf("404") !== -1) {
-          setIsEmpty(true);
-        }
-      });
+      .catch((err: Error) => {});
     setLoading(false);
   }, [search]);
 
@@ -79,7 +75,6 @@ const SearchContainer = ({}) => {
         search={search}
         setSearch={setSearch}
         loading={loading}
-        isEmpty={isEmpty}
       />
     </>
   );
