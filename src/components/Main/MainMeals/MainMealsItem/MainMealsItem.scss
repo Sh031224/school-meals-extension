@@ -1,0 +1,50 @@
+.main_meals_item {
+  width: 135px;
+  border-radius: 20px;
+  height: 160px;
+  position: relative;
+  padding: 13px;
+  text-align: center;
+  color: #babecc;
+  font-weight: bold;
+  box-shadow: -5px -5px 5px #fff, 5px 5px 5px #babecc;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #ebecf0;
+  text-shadow: 1px 1px 0 #fff;
+  &:hover {
+    box-shadow: -2px -2px 2px #fff, 2px 2px 2px #babecc;
+  }
+  &:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+  }
+  &_title {
+    color: #3f3f3f;
+    font-weight: 800;
+    font-size: 16px;
+    display: flex;
+    display: -webkit-flex;
+    text-shadow: 1px 1px 0 #fff;
+    justify-content: center;
+    align-items: center;
+  }
+  &_content {
+    color: #696b72;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 23px;
+    overflow-y: scroll;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    width: 100%;
+    word-break: break-all;
+    height: 135px;
+    &_calorie {
+      color: #0162c9;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  }
+}

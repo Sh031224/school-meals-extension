@@ -1,0 +1,18 @@
+.search_list_item {
+  flex-grow: 1;
+  margin-bottom: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-align: center;
+  &_name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #696b72;
+    position: relative;
+  }
+  &_location {
+    font-size: 12px;
+    color: #7a7d85;
+    margin-top: 5px;
+  }
+}

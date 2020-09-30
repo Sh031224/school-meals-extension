@@ -1,4 +1,4 @@
-.school_search {
+.search {
   width: 340px;
   position: relative;
   &_back {
@@ -14,7 +14,7 @@
     text-align: center;
     color: #006fe6;
     font-weight: 700;
-    box-shadow: -5px -5px 5px #fff, 5px 5px 5px #babecc;
+    box-shadow: -3.5px -3.5px 3.5px #fff, 3.5px 3.5px 3.5px #babecc;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-size: 20px;
@@ -98,15 +98,14 @@
     max-width: 270px;
     overflow-y: scroll;
     margin-top: 30px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     padding: 20px;
     background-color: #ebecf0;
     border-radius: 15px;
-    box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babecc;
+    transition: all 0.2s ease-in-out;
+    box-shadow: -3.5px -3.5px 3.5px #fff, 3.5px 3.5px 3.5px #babecc;
     min-height: 300px;
-    &::-webkit-scrollbar {
-      display: none;
+    &:hover {
+      box-shadow: -2px -2px 2px #fff, 2px 2px 2px #babecc;
     }
     &_span {
       color: #ccc;
@@ -122,33 +121,6 @@
       margin-top: 30px;
       width: 60px;
       display: block;
-    }
-  }
-}
-
-.school_list {
-  display: inline-block;
-  flex-grow: 1;
-  margin-bottom: 10px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  text-align: center;
-  &_area {
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  &_name {
-    font-size: 16px;
-    font-weight: 700;
-    color: #696b72;
-    text-align: center;
-    transition: ease-in-out 1s 0s;
-    position: relative;
-    &:hover {
-      color: rgb(31, 31, 31);
     }
   }
 }
