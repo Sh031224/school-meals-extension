@@ -14,7 +14,6 @@ interface SearchProps {
   goBack: boolean;
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
-  isEmpty: boolean;
   loading: boolean;
 }
 
@@ -32,7 +31,6 @@ const Search = ({
   goBack,
   search,
   setSearch,
-  isEmpty,
   loading
 }: SearchProps) => {
   return (
@@ -68,10 +66,10 @@ const Search = ({
         </div>
         <div className="search_content">
           {schoolList.length ? (
-            <Scrollbars autoHide>
-              <SearchList schoolList={schoolList} selectSchool={selectSchool} />
-            </Scrollbars>
+            // <Scrollbars autoHide>
+            <SearchList schoolList={schoolList} selectSchool={selectSchool} />
           ) : (
+            // </Scrollbars>
             <>
               <img src={question} alt="question" />
               {loading ? (
