@@ -1,0 +1,19 @@
+.search_list_item {
+  flex-grow: 1;
+  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-align: center;
+  &_name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #696b72;
+    text-align: center;
+    transition: ease-in-out 1s 0s;
+    position: relative;
+    &:hover {
+      color: rgb(31, 31, 31);
+    }
+  }
+}
