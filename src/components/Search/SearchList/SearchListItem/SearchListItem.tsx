@@ -20,6 +20,7 @@ const SearchListItem = ({ item, idx, selectSchool }: SearchListItemProps) => {
       <div className="search_list_item_name" title={item.school_locate}>
         {item.school_name}
       </div>
+      <div className="search_list_item_location">{item.school_locate}</div>
     </div>
   );
 };
