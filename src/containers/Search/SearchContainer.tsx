@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { goTo } from "react-chrome-extension-router";
 import School from "../../assets/api/School";
+import Search from "../../components/Search";
 import getStorage from "../../lib/getStorage";
+import MainPage from "../../pages/MainPage";
 import ResponseType from "../../types/Response";
 
 interface SchoolSearchResponse extends ResponseType {
@@ -38,7 +41,7 @@ const SearchContainer = ({}) => {
     storageCheck();
   }, [storageCheck]);
 
-  const getScheduleCallback = useCallback(async () => {
+  const getSchoolList = useCallback(async () => {
     setLoading(true);
     setSchoolList([]);
     setIsEmpty(false);
@@ -54,9 +57,30 @@ const SearchContainer = ({}) => {
     setLoading(false);
   }, [search]);
 
+  const selectSchool = useCallback(
+    (idx: number) => {
+      const school_id = schoolList[idx].school_id;
+      const office_code = schoolList[idx].office_code;
+
+      chrome.storage.sync.set({ school_id, office_code });
+
+      goTo(MainPage);
+    },
+    [schoolList]
+  );
+
   return (
     <>
-      <div></div>
+      <Search
+        schoolList={schoolList}
+        selectSchool={selectSchool}
+        getSchoolList={getSchoolList}
+        goBack={goBack}
+        search={search}
+        setSearch={setSearch}
+        loading={loading}
+        isEmpty={isEmpty}
+      />
     </>
   );
 };
