@@ -35,16 +35,16 @@
     font-weight: 500;
     line-height: 23px;
     overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     display: flex;
     display: -webkit-flex;
     justify-content: center;
     width: 100%;
     word-break: break-all;
     height: 135px;
-    &::-webkit-scrollbar {
-      display: none;
+    &_calorie {
+      color: #0162c9;
+      font-weight: 700;
+      font-size: 12px;
     }
   }
 }
