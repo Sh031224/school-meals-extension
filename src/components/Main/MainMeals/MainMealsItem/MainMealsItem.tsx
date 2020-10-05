@@ -13,8 +13,8 @@ const MainMealsItem = ({ meal, time, calorie }: MainMealsItemProps) => {
     <>
       <div className="main_meals_item">
         <div className="main_meals_item_title">{time}</div>
-        <Scrollbars autoHide>
-          <div className="main_meals_item_content" ss-container>
+        <div className="main_meals_item_content">
+          <Scrollbars autoHide>
             {meal ? (
               <div
                 title={"해당 메뉴를 더블클릭 시 구글 검색 결과로 이동됩니다."}
@@ -48,8 +48,8 @@ const MainMealsItem = ({ meal, time, calorie }: MainMealsItemProps) => {
             ) : (
               <div>급식이 없습니다.</div>
             )}
-          </div>
-        </Scrollbars>
+          </Scrollbars>
+        </div>
       </div>
     </>
   );

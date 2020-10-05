@@ -4,8 +4,8 @@ import { MdArrowBack } from "react-icons/md";
 import MainPage from "../../pages/MainPage";
 import question from "../../assets/images/question.png";
 import "./Search.scss";
-import { Scrollbars } from "react-custom-scrollbars";
 import SearchList from "./SearchList";
+import { Scrollbars } from "react-custom-scrollbars";
 
 interface SearchProps {
   schoolList: Array<SchoolType>;
@@ -66,10 +66,10 @@ const Search = ({
         </div>
         <div className="search_content">
           {schoolList.length ? (
-            // <Scrollbars autoHide>
-            <SearchList schoolList={schoolList} selectSchool={selectSchool} />
+            <Scrollbars autoHide>
+              <SearchList schoolList={schoolList} selectSchool={selectSchool} />
+            </Scrollbars>
           ) : (
-            // </Scrollbars>
             <>
               <img src={question} alt="question" />
               {loading ? (
