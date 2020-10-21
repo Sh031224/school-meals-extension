@@ -1,6 +1,6 @@
 ## school-meals-extension
 
-🍽 It is an extension program that informs Korea's national school lunch and schedule information.
+🍽 It is an extension program that informs Korean school lunch and schedule information.
 
 ### 바로가기
 
