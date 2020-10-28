@@ -6,9 +6,15 @@ interface MainMealsItemProps {
   meal: string | null;
   calorie: string | null;
   time: string;
+  onMealDoubleClick: (name: string) => void;
 }
 
-const MainMealsItem = ({ meal, time, calorie }: MainMealsItemProps) => {
+const MainMealsItem = ({
+  meal,
+  time,
+  calorie,
+  onMealDoubleClick
+}: MainMealsItemProps) => {
   return (
     <>
       <div className="main_meals_item">
@@ -16,20 +22,12 @@ const MainMealsItem = ({ meal, time, calorie }: MainMealsItemProps) => {
         <div className="main_meals_item_content">
           <Scrollbars autoHide>
             {meal ? (
-              <div
-                title={"해당 메뉴를 더블클릭 시 구글 검색 결과로 이동됩니다."}
-              >
+              <div>
                 {meal !== "불러오는 중" ? (
                   <>
                     {meal.split("<br/>").map((line) => {
                       return (
-                        <div
-                          onDoubleClick={() =>
-                            chrome.tabs.create({
-                              url: `https://www.google.com/search?q=${line}&tbm=isch`
-                            })
-                          }
-                        >
+                        <div onDoubleClick={() => onMealDoubleClick(line)}>
                           {line}
                           <br />
                         </div>

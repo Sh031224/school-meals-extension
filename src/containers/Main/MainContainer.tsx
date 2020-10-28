@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { goTo } from "react-chrome-extension-router";
 import Meals from "../../assets/api/Meals";
 import ResponseType from "../../types/Response";
@@ -35,15 +35,26 @@ const MainContainer = () => {
   const [schedules, setSchedules] = useState<string>("");
   const [scheduleList, setScheduleList] = useState<string>("");
 
+  const [isSearch, setIsSearch] = useState<boolean>(false);
+
   const [hover, setHover] = useState<boolean>(false);
 
+  const checkEl = useRef<HTMLInputElement>(null);
+
   const storageCheck = useCallback(() => {
-    const keys = ["school_id", "office_code"];
+    const keys = ["school_id", "office_code", "is_search"];
 
     chrome.storage.sync.get(keys, (items) => {
       if (items.office_code && items.school_id) {
         setSchoolId(items.school_id);
         setOfficeCode(items.office_code);
+        if (typeof items.is_search === "boolean") {
+          setIsSearch(items.is_search);
+          if (checkEl.current) {
+            checkEl.current.checked = items.is_search;
+          }
+        }
+        console.log(items);
       } else {
         goTo(SearchPage);
       }
@@ -109,6 +120,25 @@ const MainContainer = () => {
     }
   }, [schoolId, officeCode, date]);
 
+  const onMealDoubleClick = useCallback(
+    (name: string) => {
+      if (isSearch) {
+        chrome.tabs.create({
+          url: `https://www.google.com/search?q=${name}&tbm=isch`
+        });
+      }
+    },
+    [isSearch]
+  );
+
+  const changeIsSearch = useCallback(() => {
+    chrome.storage.sync.set({
+      school_id: schoolId,
+      office_code: officeCode,
+      is_search: !isSearch
+    });
+  }, [isSearch, schoolId, officeCode]);
+
   useEffect(() => {
     getScheduleCallback();
     getMealsCallback();
@@ -125,6 +155,11 @@ const MainContainer = () => {
         setDate={setDate}
         hover={hover}
         setHover={setHover}
+        changeIsSearch={changeIsSearch}
+        isSearch={isSearch}
+        setIsSearch={setIsSearch}
+        checkEl={checkEl}
+        onMealDoubleClick={onMealDoubleClick}
       />
     </>
   );
