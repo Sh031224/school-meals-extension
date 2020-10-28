@@ -15,6 +15,11 @@ interface MainProps {
   setHover: React.Dispatch<React.SetStateAction<boolean>>;
   meals: Array<string | null>;
   calories: Array<string | null>;
+  changeIsSearch: () => void;
+  isSearch: boolean;
+  setIsSearch: React.Dispatch<React.SetStateAction<boolean>>;
+  checkEl: React.RefObject<HTMLInputElement>;
+  onMealDoubleClick: (name: string) => void;
 }
 
 const Main = ({
@@ -25,7 +30,12 @@ const Main = ({
   hover,
   setHover,
   meals,
-  calories
+  calories,
+  changeIsSearch,
+  isSearch,
+  setIsSearch,
+  checkEl,
+  onMealDoubleClick
 }: MainProps) => {
   return (
     <>
@@ -67,8 +77,30 @@ const Main = ({
             <MdArrowForward />
           </button>
         </div>
-        <MainMeals meals={meals} calories={calories} />
+        <MainMeals
+          onMealDoubleClick={onMealDoubleClick}
+          meals={meals}
+          calories={calories}
+        />
         <div className="main_footer">
+          <label
+            className="main_footer_btn"
+            title="메뉴 더블 클릭 시 구글 검색 결과로 이동되는 기능입니다."
+          >
+            <div className="main_footer_btn_toggle">
+              <input
+                ref={checkEl}
+                type="checkbox"
+                checked={isSearch}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setIsSearch(e.target.checked);
+                  changeIsSearch();
+                }}
+              />
+              <div className="main_footer_btn_toggle_entity" />
+            </div>
+            <div className="main_footer_btn_text">음식 검색</div>
+          </label>
           <span
             onClick={() => {
               goTo(SearchPage);
