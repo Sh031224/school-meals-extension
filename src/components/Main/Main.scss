@@ -4,7 +4,7 @@
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  height: 320px;
+  height: 350px;
   align-items: center;
   &_header {
     h2 {
@@ -12,6 +12,7 @@
       text-align: center;
       font-weight: 800;
       color: #676a79;
+      font-size: 1.2rem;
       text-shadow: 1px 1px 1px #fff;
     }
   }
@@ -60,25 +61,73 @@
     }
   }
   &_footer {
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 13px;
-    color: #706868;
+    color: #394a56;
     display: flex;
     display: -webkit-flex;
     text-align: center;
+    width: 100%;
     justify-content: center;
+    position: relative;
+    height: 25px;
+    &_btn {
+      left: 0;
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      height: 100%;
+      &_text {
+        margin-left: 16px;
+        text-shadow: 1px 1px 0 #fff;
+        color: #394a56;
+      }
+      &_toggle {
+        isolation: isolate;
+        position: relative;
+        height: 100%;
+        width: 50px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+          4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+        &_entity {
+          height: 100%;
+          width: 200%;
+          background: #ecf0f3;
+          border-radius: 15px;
+          transform: translate3d(-75%, 0, 0);
+          transition: all 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+          box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+        }
+        input {
+          display: none;
+        }
+        input:checked ~ &_entity {
+          background: #006fe6;
+          box-shadow: -8px -4px 8px 0px #92c7ff59, 8px 4px 12px 0px #006fe6;
+          transform: translate3d(25%, 0, 0);
+        }
+      }
+    }
     span {
       margin-left: 20px;
       margin-right: 20px;
       text-shadow: 1px 1px 0 #fff;
       cursor: pointer;
+      display: flex;
+      align-items: center;
       &:hover {
         text-decoration: underline;
       }
     }
     a {
-      color: #706868;
+      color: #394a56;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      text-shadow: 1px 1px 0 #fff;
       &:hover {
         text-decoration: underline;
       }
