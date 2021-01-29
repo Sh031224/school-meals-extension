@@ -2,7 +2,7 @@
 
 🍽 It is an extension program that informs Korean school lunch and schedule information.
 
-`2021-01-29` 서비스 
+`2021-01-29` 서비스 종료
 
 ### 바로가기
 
