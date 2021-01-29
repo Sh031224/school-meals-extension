@@ -2,6 +2,8 @@
 
 🍽 It is an extension program that informs Korean school lunch and schedule information.
 
+`2021-01-29` 서비스 
+
 ### 바로가기
 
 [Whale](https://store.whale.naver.com/detail/igacokmbgjalgongkebmeaghkikdapba)
