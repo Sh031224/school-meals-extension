@@ -14,7 +14,7 @@
     "@types/react-custom-scrollbars": "^4.0.7",
     "@types/react-dom": "^16.9.0",
     "axios": "^0.21.1",
-    "moment": "^2.29.0",
+    "moment": "^2.29.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-chrome-extension-router": "^1.1.0",
